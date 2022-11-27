@@ -1,7 +1,8 @@
 tesseract-ocr
 libleptonica-dev 
-tesseract-ocr-dev 
 libtesseract-dev 
+liblept5
+tesseract-ocr-dev 
 python3-pil 
 tesseract-ocr-eng 
 tesseract-ocr-script-latn
