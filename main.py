@@ -42,3 +42,30 @@ def imageToText(filedata: UploadFile = File(...)):
     
     return text_det
 
+
+
+@app.post('/detect_emotion')
+def detectEmotion(filedata: UploadFile = File(...)):
+    contents = filedata.file.read()
+    import os
+    import cv2
+    from fer import FER
+
+    FILE_NAME = "face.png"
+
+    if os.path.exists(FILE_NAME) == False: 
+        with open(FILE_NAME, "wb") as fh:
+            fh.write(contents)
+
+    detector = FER(mtcnn=False)
+    emotion, _ = detector.top_emotion(FILE_NAME)
+    not_captured = "None"   
+
+    if str(emotion) == not_captured:
+        return "Capture Again"
+    
+    if os.path.exists(FILE_NAME):
+        os.remove(FILE_NAME)
+    
+    return {"emotion": emotion}
+

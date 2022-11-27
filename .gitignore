@@ -1,1 +1,4 @@
 ./testapi
+run.py
+face.jpeg
+__pycache__/*

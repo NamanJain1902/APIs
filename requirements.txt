@@ -3,3 +3,6 @@ python-multipart
 pytesseract
 requests
 uvicorn
+fer
+pandas
+opencv-python
